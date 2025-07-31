@@ -1,15 +1,14 @@
-import express from "express"; // Importing express from node_modules
-import bodyParser from "body-parser"; // Importing body-parser from node_modules
+import express from "express"; 
+import bodyParser from "body-parser"; 
 
-const app = express(); // Creating an instance of express
-const port = 3000; // app will listen on port 3000
+const app = express(); 
+const port = 3000; 
 
-app.use(bodyParser.urlencoded({ extended: true })); // Middleware to parse URL-encoded bodies
-app.use(express.static('public ')); // Serve static files from the public directory
+app.use(bodyParser.urlencoded({ extended: true })); 
+app.use(express.static('public')); 
 
-app.get("/", (req, res) => { // Handle GET request to the root URL
+app.get("/", (req, res) => { 
   res.render("index.ejs",{bandName: null}); // Render index.ejs with an initial bandName of null
-  console.log(req);
   }); // Handle GET request to the root URL
 
 app.post("/submit", (req, res) => { // Handle POST request to /submit
